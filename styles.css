@@ -1,0 +1,222 @@
+/*step 1
+boiler plate settings */
+* {
+  margin: 0;
+  /*remove padding*/
+  padding: 0;
+  /*remove margin*/
+  box-sizing: border-box;
+  /*to keep all sizes even */
+}
+
+/*step 2
+both the navbar-links and logo-name*/
+.top-nav {
+  /* border: 1px solid red; */
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  /*to get logo name and nav-links closer to one another*/
+  justify-content: space-around;
+  /*to split logo name and navbar-links from one another(opposite sides of the page*/
+  align-items: center;
+  /* to center vertically  */
+  min-height: 8vh;
+  /*height*/
+  background-color: green;
+  /* background color of whole navigation bar */
+  font-family: "Train One", cursive;
+  /* font style type */
+}
+
+/*step 4
+navbar links  */
+.nav-links {
+  display: flex;
+  /* flexbox container - positioning the navbar vertically */
+  /*background-color: red; */
+  /*for styling purposes only not needed in code*/
+  justify-content: space-around;
+  /* flexbox container -  spacing between the navbar-links
+  but it won't work with-out setting the width underneath */
+  width: 30%;
+  /* flexbox container - setting the width in order to space out the navbar-links*/
+
+}
+
+/*step 6
+navbar links (links in the navbar) */
+.nav-links li {
+  list-style: none;
+  /* removing dots/bulletin's */
+}
+
+/*step 5
+navbar links(anchor tags) */
+.nav-links a {
+  color: rgb(226, 226, 226);
+  text-decoration: none;
+  /*removing underlines from navbar-links */
+  letter-spacing: 3px;
+  /*spacing between the letters in the navbar-links*/
+  font-weight: bold;
+  /*font size (bold;) */
+  font-size: 14px;
+  /* changing font size */
+}
+
+/*step 8
+go to @media screen for step 9
+hamburger menu */
+.burger {
+  display: none;
+  /*making hamburger menu disappear for media query(mobile view)*/
+}
+
+/*step 7 until background color than go to .burger {display: none;}
+for step 8
+hamburger menu*/
+.burger div {
+  width: 22px;
+  /*width*/
+  height: 2px;
+  /*height*/
+  background-color: rgb(226,
+      226,
+      226);
+  /*background color to make hamburger menu appears*/
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow: scroll;
+    /* border: 2px solid red; */
+    /*hide navbar-links and scroll bars */
+  }
+
+  /*step 10 until transform: translateX(100%)
+  than move on to nav-links li for step 11
+  navbar-links (mobile view)*/
+  .nav-links {
+    position: fixed;
+    left: 0px;
+    /*move to the right side of the menu bar*/
+    height: 100vh;
+    /*to make title full screen(mobile view)*/
+    top: 0vh;
+    /*position navbar-links under menu bar (mobile view) */
+    background-color: #408a8f;
+    /* background-color color of the navbar-links */
+    display: flex;
+    /*flexbox container - to make navbar-links inline vertically*/
+    flex-direction: column;
+    /*positioning navbar-links one top of each other*/
+    align-items: center;
+    /*positioning navbar-links in center vertically of page and space navbar-links apart from another*/
+    width: 100%;
+    /* width */
+    transform: translateX(100%);
+    /*to make navbar-links disappear (but is still on screen) with scroll bars*/
+
+    /*step 14.1
+    for step 15 go app.js*/
+    /* transition: transform 0.5s ease-in; to make transition allot smoother*/
+  }
+
+  /*step 11
+  go to body overflow-x: hidden; for step 12
+  to make navbar-links disappear(completely) with scroll bar */
+  .nav-links li {
+    opacity: 0;
+    /*to remove navbar-links with scroll bars */
+  }
+
+  /*step 13 */
+  .burger {
+    position: relative;
+    display: block;
+    /*making hamburger menu appear*/
+    right: 3rem;
+    cursor: pointer;
+    /*pointer appears when hover over navbar-links*/
+  }
+
+  /*step 14
+go to .nav-links transition: transform for step 14.1
+hamburger-menu*/
+  .top-nav-active {
+    transform: translateX(0%);
+    /*translate hamburger-menu back to 0% from 100%*/
+  }
+
+  @keyframes navLinkFade {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 5px);
+  }
+
+  .toggle .line2 {
+    opacity: 0;
+  }
+
+  .toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -5px);
+  }
+
+  .title-container {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 6.0rem;
+  }
+
+  .nav-title {
+    font-size: 1.5em;
+    /* border: 2px solid red; */
+  }
+
+  .logo-icon {
+    width: 2.5rem;
+    height: 1.9rem;
+    margin-bottom: 0.2rem;
+    /* border: 1px solid red; */
+  }
+
+  .nav-title-trademark {
+    font-size: 0.5rem;
+    position: absolute;
+    left: 7.3rem;
+    top: 0.4rem;
+    /* border: 1px solid red; */
+  }
+
+  .sign-inmedia {
+    position: relative;
+    left: 3rem;
+    display: block;
+    font-size: 0.8rem;
+    background-color: transparent;
+    border: none;
+    /* border: 1px solid red; */
+  }
+
+
+}
